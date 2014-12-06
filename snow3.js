@@ -25,7 +25,7 @@ var browserWidth;
 var browserHeight;
 
 // Specify the number of snowflakes you want visible
-var numberOfSnowflakes = 2;
+var numberOfSnowflakes = 4;
 
 // Flag to reset the position of the snowflakes
 var resetPosition = false;
@@ -56,24 +56,29 @@ function getSupportedPropertyName(properties) {
 //
 function Snowflake(element, speed, xPos, yPos) {
 
-    // set initial snowflake properties
-    this.element = element;
-    this.speed = speed;
-    this.xPos = xPos;
-    this.yPos = yPos;
+        // set initial snowflake properties
+        this.element = element;
+        this.speed = speed;
+        this.xPos = xPos;
+        this.yPos = yPos;
 
-    // declare variables used for snowflake's motion
-    this.counter = 0;
-    this.sign = Math.random() < 0.5 ? 1 : -1;
+        // declare variables used for snowflake's motion
+        this.counter = 0;
+        this.sign = Math.random() < 0.5 ? 1 : -1;
 
-    // setting an initial opacity and size for our snowflake
-    this.element.style.opacity = .1 + Math.random();
-    this.element.style.fontSize = 12 + Math.random() * 50 + "px";
-}
-
-//
-// The function responsible for actually moving our snowflake
-//
+        // setting an initial opacity and size for our snowflake
+        // this.element.style.opacity = .1 + Math.random();
+        this.element.style.opacity = .5;
+        console.log(this.element.className);
+        if (this.element.className === 'snowflake price') {
+            this.element.style.fontSize = 12 + Math.random() * 50 + "px";
+        } else {
+            this.element.style.fontSize = 42 + Math.random() * 50 + "px";
+        }
+    }
+    //
+    // The function responsible for actually moving our snowflake
+    //
 Snowflake.prototype.update = function() {
 
     // using some trigonometry to determine our x and y position
@@ -85,9 +90,10 @@ Snowflake.prototype.update = function() {
     setTranslate3DTransform(this.element, Math.round(this.xPos), Math.round(this.yPos));
 
     // if snowflake goes below the browser window, move it back to the top
-    if (this.yPos > browserHeight) {
+    if (this.yPos > browserHeight + 1000) {
         this.yPos = -50;
     }
+
 }
 
 //
@@ -116,33 +122,45 @@ function generateSnowflakes() {
 
         // create each individual snowflake
         for (var i = 0; i < numberOfSnowflakes; i++) {
+            (function(i) {
+                setTimeout(function() {
+                    console.log('dfs')
+                        // clone our original snowflake and add it to snowflakeContainer
+                    var snowflakeClone = originalSnowflake.cloneNode(true);
+                    snowflakeContainer.appendChild(snowflakeClone);
 
-            // clone our original snowflake and add it to snowflakeContainer
-            var snowflakeClone = originalSnowflake.cloneNode(true);
-            snowflakeContainer.appendChild(snowflakeClone);
+                    // set our snowflake's initial position and related properties
+                    var initialXPos = getPosition(0, browserWidth);
+                    var initialYPos = -400;
+                    // var speed = 5 + Math.random() * 40;
+                    var speed = 3 + Math.random() * 3;
 
-            // set our snowflake's initial position and related properties
-            var initialXPos = getPosition(1, browserWidth);
-            var initialYPos = -200
-            var speed = 5 + Math.random() * 40;
+                    // create our Snowflake object
+                    var snowflakeObject = new Snowflake(snowflakeClone,
+                        speed,
+                        initialXPos,
+                        initialYPos);
+                    snowflakes.push(snowflakeObject);
+                }, 1000 * i); // <-- You need to multiply by i here.
+                moveSnowflakes();
+            })(i);
 
-            // create our Snowflake object
-            var snowflakeObject = new Snowflake(snowflakeClone,
-                speed,
-                initialXPos,
-                initialYPos);
-            snowflakes.push(snowflakeObject);
         }
 
         // remove the original snowflake because we no longer need it visible
         snowflakeContainer.removeChild(originalSnowflake);
 
-        // call the moveSnowflakes function every 30 milliseconds
-        moveSnowflakes();
+
     });
 
 
 }
+
+function second_passed() {
+
+    console.log('fddf');
+}
+
 
 //
 // Responsible for moving each snowflake by calling its update function

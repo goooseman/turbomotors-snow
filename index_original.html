@@ -3,9 +3,10 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Баннер для Турбомоторс</title>
+    <title>Falling Snow Example | kirupa.com</title>
     <style>
     body {
+        background-color: #1D1D1D;
         margin: 0px;
     }
     #snowflakeContainer {
@@ -38,57 +39,34 @@
     ol {
         font-family: "Franklin Gothic Medium", "Arial Narrow", sans-serif;
         font-size: 24px;
-        color: #fff;
-    }
-    p.snowflake.price {
-        color: red;
-        font-size: 10px;
+        color: #CCC;
     }
     li {
         margin-bottom: 24px;
         padding-left: 10px;
     }
     img.snowflake {
-        height: 90px;
-        width: 90px;
+        height: 100px;
+        width: 100px;
     }
     .small {
         font-size: 1px;
     }
     #content {
-        /*background-color: #1D1D1D;*/
-        
-        margin-left: 20px;
-        margin-top: 10px;
-        background-color: #CCC;
         position: absolute;
-        width: 360px;
-        height: 360px;
-        overflow: hidden;
-    }
-    #content div {
-        margin: 15px;
-        margin-top: 30px;
-    }
-    #content h6 {
-        color: #172983;
-        line-height: 36px;
-        font-size: 36px;
+        top: 50%;
+        width: 100%;
         text-align: center;
-        margin: 0;
-        margin-top: 15px;
+        transform: translateY(-50%);
     }
     #content p {
-        color: #172983;
-        line-height: 36px;
-        font-size: 36px;
-        margin-top: 15px;
-        text-align: center;
+        margin: 10px;
+        color: #CCC;
+        line-height: 50px;
+        font-size: 25px;
     }
     .turbomotors {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
+        height: 20px;
     }
     </style>
 </head>
@@ -102,26 +80,16 @@
 
         <p class="snowflake">*</p>
         <p class="snowflake">*</p>
-        <p class="snowflake">*</p>
-        <p class="snowflake">*</p>
-        <p class="snowflake">*</p>
-        <p class="snowflake">*</p>
-        <p class="snowflake">*</p>
-        <p class="snowflake price">10%</p>
-        <p class="snowflake price">5%</p>
+        <p class="snowflake">10%</p>
+        <p class="snowflake small">5%</p>
     </div>
     <div id="content">
-        <div>
-            <img src="turbomotors.png" class="turbomotors">
-            <h6>Новогодний ценопад!</h6>
-            <p>
-                C 8 декабря по 31 января небывалые скидки на все услуги, запчасти и турбины.
-
-            </p>
-        </div>
+        <p>
+            Техцентр <img src="turbomotors.png" class="turbomotors"> объявляет о новогодней акции!
+        </p>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="snow2.js"></script>
+    <script src="snow.js"></script>
     <script src="http://www.kirupa.com/js/prefixfree.min.js"></script>
 </body>
 
