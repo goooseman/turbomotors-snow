@@ -1,0 +1,27 @@
+#snowflakeContainer {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+}
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: #FFFFFF;
+    user-select: none;
+    z-index: 1000;
+}
+.snowflake:hover {
+    cursor: default;
+}
+p.snowflake {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", sans-serif;
+    font-size: 24px;
+    color: #CCC;
+}
+img.snowflake {
+    height: 100px;
+    width: 100px;
+}

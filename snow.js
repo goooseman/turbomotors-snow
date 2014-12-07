@@ -68,7 +68,11 @@ function Snowflake(element, speed, xPos, yPos) {
 
     // setting an initial opacity and size for our snowflake
     this.element.style.opacity = .1 + Math.random();
-    this.element.style.fontSize = 12 + Math.random() * 50 + "px";
+    if (this.element.className === 'snowflake price') {
+        this.element.style.fontSize = 12 + Math.random() * 50 + "px";
+    } else {
+        this.element.style.fontSize = 42 + Math.random() * 50 + "px";
+    }
 }
 
 //
@@ -124,7 +128,7 @@ function generateSnowflakes() {
             // set our snowflake's initial position and related properties
             var initialXPos = getPosition(1, browserWidth);
             var initialYPos = -200
-            var speed = 5 + Math.random() * 40;
+            var speed = 4 + Math.random() * 20;
 
             // create our Snowflake object
             var snowflakeObject = new Snowflake(snowflakeClone,

@@ -1,0 +1,90 @@
+body {
+    margin: 0px;
+}
+#snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: #FFFFFF;
+    user-select: none;
+    z-index: 1000;
+}
+.snowflake:hover {
+    cursor: default;
+}
+h1 {
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FF3300;
+    padding: 15px;
+    color: #FFF;
+    margin: 0px;
+}
+p.snowflake, ol {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", sans-serif;
+    font-size: 24px;
+    color: #fff;
+}
+p.snowflake.price {
+    color: red;
+    font-size: 10px;
+}
+li {
+    margin-bottom: 24px;
+    padding-left: 10px;
+}
+img.snowflake {
+    height: 90px;
+    width: 90px;
+}
+.small {
+    font-size: 1px;
+}
+#content {
+    /*background-color: #1D1D1D;*/
+    
+    margin-top: 10px;
+    background-color: #CCC;
+    position: absolute;
+    width: 1140px;
+    height: 210px;
+    overflow: hidden;
+}
+#content div {
+    text-align: center;
+    top: 15px;
+    position: absolute;
+    width: 1140px;
+}
+#content h6 {
+    color: #172983;
+    line-height: 50px;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    margin-top: 60px;
+}
+#content p {
+    color: #172983;
+    line-height: 36px;
+    font-size: 36px;
+    margin-top: 60px;
+    text-align: center;
+}
+.turbomotors {
+    height: 90px;
+    margin-top: 30px;
+}
+.hidden {
+    opacity: 0;
+}
+.absolute {
+    position: absolute;
+}

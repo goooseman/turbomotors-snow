@@ -69,7 +69,6 @@ function Snowflake(element, speed, xPos, yPos) {
         // setting an initial opacity and size for our snowflake
         // this.element.style.opacity = .1 + Math.random();
         this.element.style.opacity = .5;
-        console.log(this.element.className);
         if (this.element.className === 'snowflake price') {
             this.element.style.fontSize = 12 + Math.random() * 50 + "px";
         } else {
@@ -124,8 +123,7 @@ function generateSnowflakes() {
         for (var i = 0; i < numberOfSnowflakes; i++) {
             (function(i) {
                 setTimeout(function() {
-                    console.log('dfs')
-                        // clone our original snowflake and add it to snowflakeContainer
+                    // clone our original snowflake and add it to snowflakeContainer
                     var snowflakeClone = originalSnowflake.cloneNode(true);
                     snowflakeContainer.appendChild(snowflakeClone);
 
@@ -133,7 +131,7 @@ function generateSnowflakes() {
                     var initialXPos = getPosition(0, browserWidth);
                     var initialYPos = -400;
                     // var speed = 5 + Math.random() * 40;
-                    var speed = 3 + Math.random() * 3;
+                    var speed = 2 + Math.random() * 2;
 
                     // create our Snowflake object
                     var snowflakeObject = new Snowflake(snowflakeClone,
